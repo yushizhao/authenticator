@@ -3,13 +3,12 @@ package main
 import (
 	"fmt"
 
-	qrcode "github.com/skip2/go-qrcode"
 	"github.com/yushizhao/authenticator/gawrapper"
 )
 
 func main() {
-	// secret := gawrapper.GenerateSecret()
-	secret := "V6XBUJT5SRL57YIU"
+	secret := gawrapper.GenerateSecret()
+	// secret := "V6XBUJT5SRL57YIU"
 	name := "lvjidong"
 	issuer := "hubble"
 
@@ -26,9 +25,11 @@ func main() {
 
 	fmt.Println(u)
 
-	err := qrcode.WriteFile(u, qrcode.Medium, 256, "qr.png")
+	// var err error
+	// err = qrcode.WriteFile(u, qrcode.Medium, 256, "qr.png")
+	// if err != nil {
+	// 	fmt.Println(u)
+	// }
 
-	if err != nil {
-		fmt.Println(u)
-	}
+	fmt.Println(gawrapper.NewOTPAuth(name, secret, issuer))
 }

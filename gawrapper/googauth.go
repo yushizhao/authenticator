@@ -9,7 +9,6 @@ package gawrapper
 
 import (
 	"crypto/hmac"
-	"crypto/rand"
 	"crypto/sha1"
 	"encoding/base32"
 	"encoding/binary"
@@ -19,12 +18,6 @@ import (
 	"strconv"
 	"time"
 )
-
-func GenerateSecret() string {
-	b := make([]byte, 10)
-	rand.Read(b)
-	return base32.StdEncoding.EncodeToString(b)
-}
 
 // Much of this code assumes int == int64, which probably is not the case.
 
