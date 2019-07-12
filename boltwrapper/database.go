@@ -14,7 +14,7 @@ type AUTHDB struct {
 var UserDB AUTHDB
 
 // multiple processes cannot open the same database at the same time
-func init() {
+func InitDB() {
 	// It will be created if it doesn't exist.
 	db, err := bolt.Open("user.bolt.db", 0600, nil)
 	if err != nil {
