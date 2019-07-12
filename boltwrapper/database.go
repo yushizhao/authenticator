@@ -45,7 +45,7 @@ func (this *AUTHDB) GetUser(name string) (v []byte) {
 func (this *AUTHDB) SetUser(name string, v []byte) error {
 	return this.boltptr.Update(func(tx *bolt.Tx) error {
 		b := tx.Bucket([]byte("USER"))
-		err := b.Put([]byte("name"), v)
+		err := b.Put([]byte(name), v)
 		return err
 	})
 }
