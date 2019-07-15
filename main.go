@@ -55,5 +55,5 @@ func main() {
 	// userBytes := boltwrapper.UserDB.GetUser("Yushi")
 	// fmt.Println(userBytes)
 
-	qrcode.WriteFile("otpauth://totp/Hubble:Yushi?issuer=Hubble&secret=WTGQ3OEBTQI4O2U5", qrcode.Medium, 256, "qr.png")
+	qrcode.WriteFile("otpauth://totp/Hubble:Jidong?issuer=Hubble&secret=OWWC6R2S4LDDTE6P", qrcode.Medium, 256, "qr.png")
 }

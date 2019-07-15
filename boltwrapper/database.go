@@ -63,7 +63,7 @@ func (this *AUTHDB) ListUser() map[string][]byte {
 	return tmp
 }
 
-func (this *AUTHDB) DelUser(name string, v []byte) error {
+func (this *AUTHDB) DelUser(name string) error {
 	return this.boltptr.Update(func(tx *bolt.Tx) error {
 		b := tx.Bucket([]byte("USER"))
 		err := b.Delete([]byte(name))
