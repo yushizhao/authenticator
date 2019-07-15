@@ -1,10 +1,6 @@
 package main
 
-import (
-	"fmt"
-
-	"github.com/yushizhao/authenticator/boltwrapper"
-)
+import qrcode "github.com/skip2/go-qrcode"
 
 func main() {
 	// secret := gawrapper.GenerateSecret()
@@ -55,7 +51,9 @@ func main() {
 	// 	time.Sleep(time.Second)
 	// }
 
-	boltwrapper.InitDB()
-	userBytes := boltwrapper.UserDB.GetUser("Yushi")
-	fmt.Println(userBytes)
+	// boltwrapper.InitDB()
+	// userBytes := boltwrapper.UserDB.GetUser("Yushi")
+	// fmt.Println(userBytes)
+
+	qrcode.WriteFile("otpauth://totp/Hubble:Yushi?issuer=Hubble&secret=WTGQ3OEBTQI4O2U5", qrcode.Medium, 256, "qr.png")
 }

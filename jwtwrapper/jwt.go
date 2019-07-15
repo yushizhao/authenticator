@@ -43,12 +43,12 @@ func IssueTokenStr(claims map[string]interface{}, secretStr string) (string, err
 	return token.SignedString([]byte(secretStr))
 }
 
-func IssueTokenStrWithExp(claims map[string]interface{}, secretStr string, second int) (string, error) {
+func IssueTokenStrWithExp(claims map[string]interface{}, secretStr string, second int64) (string, error) {
 	var claimsMC jwt.MapClaims
 	claimsMC = claims
 	now := time.Now().Unix()
 	claimsMC["iat"] = now
-	claimsMC["exp"] = now + int64(second)
+	claimsMC["exp"] = now + second
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claimsMC)
 
 	// Sign and get the complete encoded token as a string using the secret
