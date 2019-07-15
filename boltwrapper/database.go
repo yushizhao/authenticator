@@ -49,3 +49,24 @@ func (this *AUTHDB) SetUser(name string, v []byte) error {
 		return err
 	})
 }
+
+func (this *AUTHDB) ListUser() map[string][]byte {
+	tmp := make(map[string][]byte)
+	this.boltptr.View(func(tx *bolt.Tx) error {
+		b := tx.Bucket([]byte("USER"))
+		c := b.Cursor()
+		for k, v := c.First(); k != nil; k, v = c.Next() {
+			tmp[string(k)] = v
+		}
+		return nil
+	})
+	return tmp
+}
+
+func (this *AUTHDB) DelUser(name string, v []byte) error {
+	return this.boltptr.Update(func(tx *bolt.Tx) error {
+		b := tx.Bucket([]byte("USER"))
+		err := b.Delete([]byte(name))
+		return err
+	})
+}
