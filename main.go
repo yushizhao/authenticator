@@ -30,27 +30,6 @@ func main() {
 	// 	fmt.Println(ok)
 	// }
 
-	// JWTSecret := "xihaijie"
-	// c := map[string]interface{}{
-	// 	"foo": "bar",
-	// }
-
-	// // Sign and get the complete encoded token as a string using the secret
-	// tokenString, err := jwtwrapper.IssueTokenStr(c, JWTSecret)
-	// tokenString2, err := jwtwrapper.IssueTokenStrWithExp(c, JWTSecret, 5)
-
-	// fmt.Println(tokenString, err)
-
-	// cc, err := jwtwrapper.GetMapClaims(tokenString, JWTSecret)
-	// fmt.Printf("%v,%v\n", cc, err)
-
-	// for {
-	// 	cc2, err := jwtwrapper.GetMapClaims(tokenString2, JWTSecret)
-	// 	fmt.Printf("%v,%v\n", cc2, err)
-
-	// 	time.Sleep(time.Second)
-	// }
-
 	// boltwrapper.InitDB()
 	// userBytes := boltwrapper.UserDB.GetUser("Yushi")
 	// fmt.Println(userBytes)
